@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "techtalkjervin/my-app"
+        IMAGE_NAME = "Dhivyarhithanya/my-app"
         REGISTRY = "docker.io"
         DOCKER_CREDENTIALS_ID = "Dhivyarhithanya"
         GITHUB_CREDENTIALS_ID = "Dhivyarhithanya"
@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git credentialsId: GITHUB_CREDENTIALS_ID, url: 'https://github.com/Dhivyarhithanya/Jenkins', branch: 'main'
+                git credentialsId: GITHUB_CREDENTIALS_ID, url: 'https://github.com/Dhivyarhithanya/Jenkins.git', branch: 'main'
             }
         }
 
