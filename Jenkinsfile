@@ -65,10 +65,10 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "Dhivyarhithanya/my-app"
+        IMAGE_NAME = "dhivyarhithanya/my-app"
         REGISTRY = "docker.io"
         APP_DIR = "/home/vboxuser/Downloads/"
-        DOCKER_USER = "Dhivyarhithanya"          // Replace with your Docker Hub username
+        DOCKER_USER = "dhivyarhithanya"          // Replace with your Docker Hub username
         DOCKER_PASS = "wanderlust"          // Replace with your Docker Hub password
     }
 
