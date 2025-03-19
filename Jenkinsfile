@@ -4,9 +4,9 @@ pipeline {
     environment {
         IMAGE_NAME = "techtalkjervin/my-app"
         REGISTRY = "docker.io"
-        DOCKER_CREDENTIALS_ID = "docker-hub-credentials"
-        GITHUB_CREDENTIALS_ID = "github-credentials"
-        APP_DIR = "/opt/docker-kec"
+        DOCKER_CREDENTIALS_ID = "Dhivyarhithanya"
+        GITHUB_CREDENTIALS_ID = "Dhivyarhithanya"
+        APP_DIR = "/home/vboxuser/Downloads/"
     }
 
     stages {
