@@ -1,0 +1,23 @@
+# Use the official Ubuntu image as the base
+FROM ubuntu:latest
+
+# Set environment variables (optional)
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Update package lists and install necessary packages
+RUN apt-get update && apt-get install -y \
+    curl \
+    wget \
+    nano \
+    vim \
+    net-tools \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy files from the host system to the container (if needed)
+# COPY . /app
+
+# Define the default command (interactive shell)
+CMD ["bash"]
