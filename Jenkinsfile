@@ -64,17 +64,17 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "techtalkjervin/my-app"
+        IMAGE_NAME = "dhivyarhithanya/my-app"
         REGISTRY = "docker.io"
-        DOCKER_CREDENTIALS_ID = "dhivyarhithanya"
-        GITHUB_CREDENTIALS_ID = "Dhivyarhithanya"
         APP_DIR = "/home/vboxuser/Downloads/"
+        DOCKER_USER = "dhivyarhithanya"          // Replace with your Docker Hub username
+        DOCKER_PASS = "wanderlust"          // Replace with your Docker Hub password
     }
 
     stages {
         stage('Checkout Code') {
             steps {
-                git credentialsId: GITHUB_CREDENTIALS_ID, url: 'https://github.com/Dhivyarhithanya/Jenkins.git', branch: 'main'
+                git url: 'https://github.com/Dhivyarhithanya/Jenkins.git', branch: 'main'
             }
         }
 
@@ -89,9 +89,7 @@ pipeline {
         stage('Login to Docker Registry') {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: DOCKER_CREDENTIALS_ID, usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
-                        sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
-                    }
+                    sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
                 }
             }
         }
@@ -115,10 +113,11 @@ pipeline {
 
     post {
         success {
-            echo 'Pipeline executed successfully! '
+            echo 'Pipeline executed successfully!'
         }
         failure {
             echo 'Pipeline failed! Check the logs for errors.'
         }
     }
 }
+
